@@ -5,9 +5,9 @@
   "sourceRepository": "https://github.com/leike0813/zotero-agents",
   "releaseRepository": "https://github.com/leike0813/zotero-librarian-profile",
   "installCommand": "hermes profile install https://github.com/leike0813/zotero-librarian-profile.git <--alias>",
-  "sourceCommit": "fecfe0c2c3d12c93ecbe4474f198c92cdd294d2f",
+  "sourceCommit": "598715bcb2076b6304c9a5da05e603de0cc60b9c",
   "dirty": true,
-  "generatedAt": "2026-06-30T07:51:10.8806093Z",
+  "generatedAt": "2026-06-30T14:39:54.1420191Z",
   "binarySource": "addon/bin",
   "binaries": [
     {
