@@ -1,0 +1,51 @@
+{
+  "schema": "zotero-librarian.profile.release-manifest.v1",
+  "profile": "zotero-librarian",
+  "profileVersion": "0.1.0",
+  "sourceRepository": "https://github.com/leike0813/zotero-agents",
+  "releaseRepository": "https://github.com/leike0813/zotero-librarian-profile",
+  "installCommand": "hermes profile install https://github.com/leike0813/zotero-librarian-profile.git <--alias>",
+  "sourceCommit": "fecfe0c2c3d12c93ecbe4474f198c92cdd294d2f",
+  "dirty": true,
+  "generatedAt": "2026-06-30T07:51:10.8806093Z",
+  "binarySource": "addon/bin",
+  "binaries": [
+    {
+      "platform": "win32-x64",
+      "binary": "assets/zotero-bridge/bin/win32-x64/zotero-bridge.exe",
+      "sha256": "f67bb2cac51af88020796b1e818f8652de18855d620986ba48311a598abee614"
+    },
+    {
+      "platform": "darwin-x64",
+      "binary": "assets/zotero-bridge/bin/darwin-x64/zotero-bridge",
+      "sha256": "99250dbc85268649925f972cc058790476a94823936a3b47dd5318f2a7e6fe0a"
+    },
+    {
+      "platform": "darwin-arm64",
+      "binary": "assets/zotero-bridge/bin/darwin-arm64/zotero-bridge",
+      "sha256": "184fc3ae3841f9803a2c7d7fbaed9aaf8189f302d6f334ce63ed289aa56c65a4"
+    },
+    {
+      "platform": "linux-x86",
+      "binary": "assets/zotero-bridge/bin/linux-x86/zotero-bridge",
+      "sha256": "b41db72568d7a3a9cfe5badf945241718ce6e0e480d0a7f164c0e3866a11f215"
+    },
+    {
+      "platform": "linux-x64",
+      "binary": "assets/zotero-bridge/bin/linux-x64/zotero-bridge",
+      "sha256": "bb349e3f5bcd643875df20bc64da53c5bc7007a4b66eeb7ee11dfadac0fb8ad1"
+    },
+    {
+      "platform": "linux-arm",
+      "binary": "assets/zotero-bridge/bin/linux-arm/zotero-bridge",
+      "sha256": "e7819988d147ad72e825402bce3daf1bdd0ce597ee6eac5c7188687c9b567ad9"
+    },
+    {
+      "platform": "linux-arm64",
+      "binary": "assets/zotero-bridge/bin/linux-arm64/zotero-bridge",
+      "sha256": "2e902abfba77901422151bab0b5da52c58e4fb2d31193871336eceb0c1e9dea6"
+    }
+  ],
+  "generatedCatalogChecksum": "6017eb938961b32f67d1d2c4591c8f7023e25287b7ac0b48296f0d987cd4b186"
+}
+
