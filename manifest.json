@@ -1,13 +1,13 @@
 {
   "schema": "zotero-librarian.profile.release-manifest.v1",
   "profile": "zotero-librarian",
-  "profileVersion": "0.1.0",
+  "profileVersion": "0.2.0",
   "sourceRepository": "https://github.com/leike0813/zotero-agents",
   "releaseRepository": "https://github.com/leike0813/zotero-librarian-profile",
   "installCommand": "hermes profile install https://github.com/leike0813/zotero-librarian-profile.git <--alias>",
-  "sourceCommit": "598715bcb2076b6304c9a5da05e603de0cc60b9c",
+  "sourceCommit": "c766051e2085faf20b8fb4719efdf1ac3fcf2ee7",
   "dirty": true,
-  "generatedAt": "2026-06-30T14:39:54.1420191Z",
+  "generatedAt": "2026-07-05T15:33:56.5510739Z",
   "binarySource": "addon/bin",
   "binaries": [
     {
@@ -46,6 +46,6 @@
       "sha256": "2e902abfba77901422151bab0b5da52c58e4fb2d31193871336eceb0c1e9dea6"
     }
   ],
-  "generatedCatalogChecksum": "6017eb938961b32f67d1d2c4591c8f7023e25287b7ac0b48296f0d987cd4b186"
+  "generatedCatalogChecksum": "15abc941d1892b9474bd24c6d95aa9cf1387f810c843ffd26d9fd58b20a53d17"
 }
 

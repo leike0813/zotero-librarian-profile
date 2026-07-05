@@ -1,53 +1,69 @@
+---
+name: zotero-librarian
+description: Use when coordinating Zotero library inspection, synthesis context, workflow execution, and library maintenance through Host Bridge.
+license: AGPL-3.0-or-later
+---
+
 # Zotero Librarian
 
-Use this skill when you need to inspect, organize, analyze, or maintain a Zotero library through Zotero Agents Host Bridge and the packaged `zotero-bridge` CLI.
+Use this skill to operate the Zotero library through Host Bridge with a librarian posture: inspect first, keep evidence traceable, and apply changes only through reviewed mutation or workflow channels.
 
-## Operating Model
+## First Steps
 
-1. Load `references/host-bridge.md` for the current CLI and capability surface.
-2. Use the local index service before issuing repeated Zotero reads:
-   - `scripts/zotero_librarian_index_service.py stats`
-   - `scripts/zotero_librarian_index_service.py search "<query>"`
-   - `scripts/zotero_librarian_index_service.py item <key-or-id>`
-3. Refresh the index with `scripts/zotero_librarian_index_service.py refresh` when the index is missing, stale, or the user asks for current library state.
-4. Load `references/workflows.md` before submitting a workflow. If a needed workflow is not cataloged, run `workflow-refresh` once and then submit using the cached payload contract.
-5. After submitting a workflow, register the returned run id with `run-register` and monitor it with `run-watch`.
+1. Read `references/operating-principles.md` for task-level command choice.
+2. Read `references/terminology.md` when the request uses shorthand such as graph, 三件套, digest, references, citation analysis, run handles, or writeback.
+3. Read `references/workflow-execution-policy.md` before preparing or submitting workflows.
+4. Use `references/common-tasks.md` for common literature, readiness, synthesis, and writeback task routing.
+5. Use `references/host-bridge.md` for Host Bridge CLI commands and `references/workflows.md` for workflow catalog guidance.
+6. Use `references/library-maintenance.md` for recurring maintenance routines.
+7. Check `zotero-bridge bridge status` when Host Bridge availability is uncertain.
+8. Compare `zotero-bridge --version` with the expected version in `references/host-bridge.md` when the loaded profile path, command help, or CLI error suggests a surface mismatch.
+9. Use `zotero-bridge bridge profile inspect`, `zotero-bridge bridge profile diagnose`, and `zotero-bridge bridge backend ...` before retrying backend or profile-sensitive operations.
 
-## Zotero Bridge Basics
+## Decision Rules
 
-Initialize the packaged CLI before the first Zotero action:
+- For direct library facts, use `library`.
+- For missing PDF, source Markdown, or literature-analysis artifact discovery, use `library readiness`.
+- For the active Zotero pane, current selection, or UI navigation to known Zotero handles, use `context`.
+- For topic, graph, index, resolver, artifact, or insight context, use `synthesis`.
+- For reusable multi-step behavior, inspect the workflow with `workflow describe`.
+- For draft workflow inputs, use `workflow requirements` or `workflow validate` before execution when readiness is uncertain.
+- For Host-owned execution, submit the workflow and monitor the returned `workflowRunId` with `run`.
+- For agent-owned handoffs, use `$zotero-workflow-agent-runner`; treat `agentRunId` as the apply-back session handle, complete the returned requests, and apply them with `workflow agent-apply`.
+- For writes, use preview/apply, mutation-backed semantic commands, or workflow apply-back. Keep the preview, applied result, uploaded `fileId`, or result bundle path in the task record.
+
+## Context Handling
+
+Use `context current` or `context selection get` before acting on phrases like "this paper", "the selected notes", "the current collection", or "take me to that item". Use `context item open`, `context note open`, `context collection open`, or `context selection open` only with handles returned by Zotero or Host Bridge.
+
+Context navigation changes what Zotero displays or selects. It is not a mutation channel and does not authorize metadata, note, tag, or file changes.
+
+## Writeback Handling
+
+For tag, collection, item field, note, payload, and attachment changes, inspect the target first and then use `mutation` commands. Upload local artifacts with `file upload` before attaching them with `mutation item attach-file`. Use `library annotation ...` commands for annotation reads and exports; annotation writes are not part of this surface.
+
+## Run Handling
+
+Use `run active` for a lightweight view of currently running, waiting, or recoverable failed Host-owned tasks. Use `run notification list` when you need callback-style lifecycle events. Use profile notification sync scripts for scheduled monitoring. Use `run get <workflowRunId>` when you need the skill-run breakdown of a specific workflow run.
+
+Use `run recent`, `run workflow recent`, `run skill recent`, and `run skill events` for lightweight history and lifecycle/progress facts. These commands are not transcript access and do not imply an interaction target.
+
+Use `run permission pending` and `run permission get` to inspect approval state. The CLI does not approve or reject permission requests.
+
+Interactive actions require `skillRunId`:
 
 ```powershell
-scripts/install_zotero_bridge_cli.py
-zotero-bridge status
-zotero-bridge manifest
-scripts/zotero_librarian_index_service.py stats
+zotero-bridge run skill reply <skillRunId> --message "..."
+zotero-bridge run skill connect <skillRunId>
+zotero-bridge run notification ack --event <eventId>
 ```
 
-The installer links the Hermes well-known Host Bridge profile path to the host `bridge-profile.json`. Do not change `HOME` for Zotero Bridge access. If the host profile cannot be inferred, set `ZOTERO_BRIDGE_HOST_PROFILE` or run the installer with `--host-profile`.
+## Output Discipline
 
-Use the packaged Host Bridge profile template only when creating or repairing a host profile:
+When reporting results, include the Zotero item keys, topic IDs, workflow IDs, run handles, artifact paths, or file-handle downloads that support the answer. If a command fails, report the structured error code and the next safe action.
 
-```powershell
-$env:ZOTERO_BRIDGE_PROFILE = "assets/host-bridge/profile.example.json"
-$env:ZOTERO_BRIDGE_TOKEN = "<set-by-runtime>"
-```
+## Maintenance Handling
 
-Use direct library commands for bounded reads:
+Use `synthesis cache status` and `synthesis index status` for read-only maintenance diagnostics. Use `synthesis cache invalidate` only for supported scopes and only when an approval-gated cache maintenance action is appropriate. Keep citation graph metric repair on `synthesis graph refresh-metrics`.
 
-```powershell
-zotero-bridge library list --input '{"limit":25,"query":"transformer"}'
-zotero-bridge library snapshot --input '{"limit":200,"cursor":"0"}'
-```
-
-## Maintenance Boundaries
-
-- Scheduled jobs are read-only by default.
-- For writes or workflows that apply results back to Zotero, ask for user approval unless the current workflow explicitly grants approval.
-- Do not read Zotero database files directly. Use Host Bridge, `zotero-bridge`, and the local index produced from `library.sync_snapshot`.
-
-## References
-
-- `references/host-bridge.md`
-- `references/workflows.md`
-- `references/library-maintenance.md`
+Use `scripts/zotero_librarian_notification_service.py sync` for non-blocking notification inbox refresh. Do not run long-polling waits from cron or from the agent loop.

@@ -7,15 +7,52 @@
   "sourceFiles": {
     "hostBridgeCapabilityRegistry": "src/modules/hostBridgeCapabilityRegistry.ts",
     "zoteroBridgeCliCommands": "cli/zotero-bridge/src/commands.rs",
+    "zoteroBridgeCliRelease": "cli/zotero-bridge/release.json",
     "workflowManifest": "workflows_builtin/manifest.json",
-    "profileExample": "skills_builtin/zotero-bridge-cli/assets/profile.template.json"
+    "profileExample": "skills_builtin/zotero-bridge-cli/assets/profile.template.json",
+    "semanticSources": [
+      "profiles_src/hermes/zotero-librarian/SOUL.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-librarian/SKILL.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-librarian/references/operating-principles.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-librarian/references/workflow-execution-policy.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-librarian/references/common-tasks.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-workflow-agent-runner/SKILL.md",
+      "profiles_src/hermes/zotero-librarian/skills/zotero-workflow-agent-runner/references/agent-run-playbook.md",
+      "skills_src/host-bridge-shared/terminology.md"
+    ],
+    "profileScripts": [
+      "profiles/hermes/zotero-librarian/scripts/zotero_librarian_index_service.py",
+      "profiles/hermes/zotero-librarian/scripts/install_zotero_bridge_cli.py",
+      "profiles/hermes/zotero-librarian/scripts/zotero_librarian_workflow_service.py",
+      "profiles/hermes/zotero-librarian/scripts/zotero_librarian_notification_service.py"
+    ],
+    "profileCron": [
+      "profiles/hermes/zotero-librarian/cron/index-refresh.yaml",
+      "profiles/hermes/zotero-librarian/cron/workflow-catalog-refresh.yaml",
+      "profiles/hermes/zotero-librarian/cron/run-monitor.yaml",
+      "profiles/hermes/zotero-librarian/cron/notification-sync.yaml",
+      "profiles/hermes/zotero-librarian/cron/inbox-triage.yaml",
+      "profiles/hermes/zotero-librarian/cron/library-hygiene.yaml",
+      "profiles/hermes/zotero-librarian/cron/attention-queue.yaml"
+    ],
+    "profileConfig": [
+      "profiles/hermes/zotero-librarian/config.yaml"
+    ]
   },
   "generated": {
     "markers": [
       "zotero-librarian:host-bridge:start",
       "zotero-librarian:workflow-catalog:start"
     ],
-    "catalogChecksum": "d75073e357325aacebf8220e0da3eaaf02bfb20942e20653d0d3b5616e13d7b5",
-    "workflowCatalogChecksum": "11fab7aec104eeca66310d69b523f71fa7cfa6f51d1e3509eb6a4163b2819821"
+    "catalogChecksum": "f3fdd3b24d2a7673e7001800b6e2e955d9780b7cea32392a641f5721bb97966f",
+    "workflowCatalogChecksum": "11fab7aec104eeca66310d69b523f71fa7cfa6f51d1e3509eb6a4163b2819821",
+    "zoteroBridgeCliRelease": {
+      "schema": "zotero-bridge-cli-release.v1",
+      "version": "0.2.0",
+      "buildFingerprint": "2a1128220a18023c579157610bfd696dae8023c0ed479d17b62a471b8e9b9b7c",
+      "binaryAggregateSha256": "47103ef78f077c764730234b8a4b11fec8dbae0163651b8e5a5d2d7060af4219"
+    },
+    "semanticSourceChecksum": "214a20c0eb78dd31d52a0701b97c4e55e0683efd40c229418ca7602cc74b8627",
+    "serviceSourceChecksum": "e38589db906e5dc296d6586b8a1712b869424b74ef1ba245a4f009ecc16c00ec"
   }
 }
