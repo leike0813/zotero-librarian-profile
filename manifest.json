@@ -5,15 +5,15 @@
   "sourceRepository": "https://github.com/leike0813/zotero-agents",
   "releaseRepository": "https://github.com/leike0813/zotero-librarian-profile",
   "installCommand": "hermes profile install https://github.com/leike0813/zotero-librarian-profile.git <--alias>",
-  "sourceCommit": "269d793a842dfd8e833430e5009dd52d676748bd",
+  "sourceCommit": "059024a6a549ca022cf44ceae51b491140c3b87a",
   "dirty": true,
-  "generatedAt": "2026-07-06T15:18:30.6944479Z",
+  "generatedAt": "2026-07-06T15:21:38.6322099Z",
   "binarySource": "addon/bin",
   "binaries": [
     {
       "platform": "win32-x64",
       "binary": "assets/zotero-bridge/bin/win32-x64/zotero-bridge.exe",
-      "sha256": "b541e4b03406b00bd5995e30315768690752fc86fd13d13ef9c9ac69fe1785f9"
+      "sha256": "0f87ba4b0916b9afb540786431ae74fd7f7d01815d639ec40c741688ffde68f9"
     },
     {
       "platform": "darwin-x64",
@@ -46,6 +46,6 @@
       "sha256": "c0e706cc01dea592d640a63df2588b6f669d09816e6400c3f1b8addda5d8e6c2"
     }
   ],
-  "generatedCatalogChecksum": "0f5a46e3c2c1a0bf812e0371e89338bdb2353312eaa09f337c4ddb076a3a86f0"
+  "generatedCatalogChecksum": "c21ebd7b2140638b32876d56cbf7648e20e6bf9397cf4df82e92b45857d20135"
 }
 
