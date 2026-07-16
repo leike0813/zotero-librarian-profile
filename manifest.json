@@ -1,51 +1,51 @@
 {
   "schema": "zotero-librarian.profile.release-manifest.v1",
   "profile": "zotero-librarian",
-  "profileVersion": "0.2.0",
+  "profileVersion": "0.2.2",
+  "zoteroBridgeCliVersion": "0.2.2",
   "sourceRepository": "https://github.com/leike0813/zotero-agents",
   "releaseRepository": "https://github.com/leike0813/zotero-librarian-profile",
   "installCommand": "hermes profile install https://github.com/leike0813/zotero-librarian-profile.git <--alias>",
-  "sourceCommit": "caacc700308e74271464fd4f23d7261c3051a351",
+  "sourceCommit": "e5cda7014de8dc2f3eceb392da21d36df5c0e7b5",
   "dirty": true,
-  "generatedAt": "2026-07-07T14:17:13.1529760Z",
+  "generatedAt": "2026-07-16T16:56:54.632529Z",
   "binarySource": "addon/bin",
   "binaries": [
     {
       "platform": "win32-x64",
       "binary": "assets/zotero-bridge/bin/win32-x64/zotero-bridge.exe",
-      "sha256": "0f87ba4b0916b9afb540786431ae74fd7f7d01815d639ec40c741688ffde68f9"
+      "sha256": "2f26a3714dc370748f0e8b99cffb7f4cb231826124c99ffd32b4ce88496530ca"
     },
     {
       "platform": "darwin-x64",
       "binary": "assets/zotero-bridge/bin/darwin-x64/zotero-bridge",
-      "sha256": "5eac441473157eb5de38cdee988ca3ff86160fd1ffe43995a000e5b3a4363838"
+      "sha256": "576cff7ab6f680d99d86aa7345eb1bb96b30206a81f24e1229a2c3c65f9abdb5"
     },
     {
       "platform": "darwin-arm64",
       "binary": "assets/zotero-bridge/bin/darwin-arm64/zotero-bridge",
-      "sha256": "602e5de0a8c246068570ff544ddc1bad4b7df02a7896758bdaeca8678f1df1f9"
+      "sha256": "4a7e5d5c4e9bc0611dbbe9c0916b24945c7d75fac3258417ddb459e56776656f"
     },
     {
       "platform": "linux-x86",
       "binary": "assets/zotero-bridge/bin/linux-x86/zotero-bridge",
-      "sha256": "b4c5bb599a07a4520238dced17a54643a0780a22290574aa473b5dee105e487d"
+      "sha256": "42d9392cc53057130553efa98c222c1a7817683250d8eb41aac61f690ca3ef0b"
     },
     {
       "platform": "linux-x64",
       "binary": "assets/zotero-bridge/bin/linux-x64/zotero-bridge",
-      "sha256": "40f6a95fa1f04df05475acd5af49212dd1159397f2c248257022612d276b5ac4"
+      "sha256": "1ef0bc3980ba6f5c9b5934650d22744dae2007850cb365845d4aa250dd57bfed"
     },
     {
       "platform": "linux-arm",
       "binary": "assets/zotero-bridge/bin/linux-arm/zotero-bridge",
-      "sha256": "171475a7c8ba1afe6effadf066a9ba29231f45ee0e8de3491ecfa6dfce4f519d"
+      "sha256": "6c3b781e334fd9afb0fbcac2b35e60bf42a71a2df703f9b36b895c83a0a4885e"
     },
     {
       "platform": "linux-arm64",
       "binary": "assets/zotero-bridge/bin/linux-arm64/zotero-bridge",
-      "sha256": "c0e706cc01dea592d640a63df2588b6f669d09816e6400c3f1b8addda5d8e6c2"
+      "sha256": "b552b6f56f0bccca37286d18188eab8ac512151cf3d37df1bb31c24c02500b0c"
     }
   ],
-  "generatedCatalogChecksum": "5a0159d37f709f6f998af9fe7a69c1300578d73353a36b97d0c7051f0e8fe8b1"
+  "generatedCatalogChecksum": "44c08158ad6d942df1ddf5af262302d36945d1db8129b78ce49588404757c06f"
 }
-

@@ -5,7 +5,7 @@ This reference is generated from the Host Bridge capability registry and Rust CL
 <!-- zotero-librarian:host-bridge:start -->
 ## CLI Release
 
-This profile surface is generated for `zotero-bridge` CLI version `0.2.1`.
+This profile surface is generated for `zotero-bridge` CLI version `0.2.2`.
 
 Confirm with `zotero-bridge --version` when the loaded profile or skill path is uncertain, command help does not match this reference, or a CLI error points to command shape mismatch. If the observed version differs, prefer the profile copy and CLI shim from the active workspace, then inspect `zotero-bridge --help` or this generated reference beside that profile copy.
 
@@ -118,11 +118,11 @@ Confirm with `zotero-bridge --version` when the loaded profile or skill path is 
 
 ## Snapshot Payload
 
-`zotero-bridge library snapshot --input <JSON_OR_FILE>` maps to `library.sync_snapshot`.
+`zotero-bridge library snapshot --query <JSON_OR_FILE>` maps to `library.sync_snapshot`.
 
-`zotero-bridge library items list --input <JSON_OR_FILE>` maps to `library.list_items`.
+`zotero-bridge library items list --query <JSON_OR_FILE>` maps to `library.list_items`.
 
-`zotero-bridge library readiness audit|missing-pdf|missing-markdown|missing-analysis --input <JSON_OR_FILE>` maps to `library.readiness_audit`.
+`zotero-bridge library readiness audit|missing-pdf|missing-markdown|missing-analysis --query <JSON_OR_FILE>` maps to `library.readiness_audit`.
 
 Input fields: `libraryId`, `cursor`, `limit`, `collectionId`, `collectionKey`, `tag`, `itemType`, and `query`.
 

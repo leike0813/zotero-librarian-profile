@@ -10,15 +10,16 @@ Use this skill to operate the Zotero library through Host Bridge with a libraria
 
 ## First Steps
 
-1. Read `references/operating-principles.md` for task-level command choice.
-2. Read `references/terminology.md` when the request uses shorthand such as graph, 三件套, digest, references, citation analysis, run handles, or writeback.
-3. Read `references/workflow-execution-policy.md` before preparing or submitting workflows.
-4. Use `references/common-tasks.md` for common literature, readiness, synthesis, and writeback task routing.
-5. Use `references/host-bridge.md` for Host Bridge CLI commands and `references/workflows.md` for workflow catalog guidance.
-6. Use `references/library-maintenance.md` for recurring maintenance routines.
-7. Check `zotero-bridge bridge status` when Host Bridge availability is uncertain.
-8. Compare `zotero-bridge --version` with the expected version in `references/host-bridge.md` when the loaded profile path, command help, or CLI error suggests a surface mismatch.
-9. Use `zotero-bridge bridge profile inspect`, `zotero-bridge bridge profile diagnose`, and `zotero-bridge bridge backend ...` before retrying backend or profile-sensitive operations.
+1. Read `references/control-invariants.md` before using handles, approvals, files, workflows, or writeback.
+2. Read `references/operating-principles.md` for profile-level command choice and resident maintenance posture.
+3. Read `references/terminology.md` when the request uses shorthand such as graph, 三件套, digest, references, citation analysis, run handles, or writeback.
+4. Read `references/workflow-execution-policy.md` before preparing or submitting workflows.
+5. Use `references/common-tasks.md` for common literature, readiness, synthesis, and writeback task routing.
+6. Use `references/host-bridge.md` for Host Bridge CLI commands and `references/workflows.md` for workflow catalog guidance.
+7. Use `references/library-maintenance.md` for recurring maintenance routines.
+8. Check `zotero-bridge bridge status` when Host Bridge availability is uncertain.
+9. Compare `zotero-bridge --version` with the expected version in `references/host-bridge.md` when the loaded profile path, command help, or CLI error suggests a surface mismatch.
+10. Use `zotero-bridge bridge profile inspect`, `zotero-bridge bridge profile diagnose`, and `zotero-bridge bridge backend ...` before retrying backend or profile-sensitive operations.
 
 ## Decision Rules
 
@@ -27,6 +28,7 @@ Use this skill to operate the Zotero library through Host Bridge with a libraria
 - For the active Zotero pane, current selection, or UI navigation to known Zotero handles, use `context`.
 - For topic, graph, index, resolver, artifact, or insight context, use `synthesis`.
 - For reusable multi-step behavior, inspect the workflow with `workflow describe`.
+- For scope-driven curation of an existing collection from literature already in the same library, submit the Host-owned `collection-collector` workflow with explicit workflow options rather than issuing inferred item-by-item collection mutations or using an optionless agent-run handoff.
 - For draft workflow inputs, use `workflow requirements` or `workflow validate` before execution when readiness is uncertain.
 - For Host-owned execution, submit the workflow and monitor the returned `workflowRunId` with `run`.
 - For agent-owned handoffs, use `$zotero-workflow-agent-runner`; treat `agentRunId` as the apply-back session handle, complete the returned requests, and apply them with `workflow agent-apply`.
