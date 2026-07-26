@@ -107,14 +107,14 @@ def link_well_known_profile(
     source = resolve_host_profile(host_profile, host_home)
     if source is None:
         print(
-            "skipped Host Bridge profile link: set ZOTERO_BRIDGE_HOST_PROFILE "
+            "skipped Zotero Bridge connection-profile link: set ZOTERO_BRIDGE_HOST_PROFILE "
             "or ZOTERO_BRIDGE_HOST_HOME when Hermes home cannot be inferred"
         )
         return
 
     source = source.resolve()
     if not source.exists():
-        print(f"skipped Host Bridge profile link: source profile does not exist: {source}")
+        print(f"skipped Zotero Bridge connection-profile link: source profile does not exist: {source}")
         return
 
     target_parent = target.parent
@@ -122,47 +122,47 @@ def link_well_known_profile(
 
     if target.exists() or target.is_symlink():
         if target.is_symlink() and target.resolve() == source:
-            print(f"Host Bridge profile link already exists: {target}")
+            print(f"Zotero Bridge connection-profile link already exists: {target}")
             return
         if not force:
             print(
-                "skipped Host Bridge profile link: target already exists "
+                "skipped Zotero Bridge connection-profile link: target already exists "
                 f"({target}); pass --force-profile-link to replace it"
             )
             return
         target.unlink()
 
     target.symlink_to(source)
-    print(f"linked Host Bridge profile: {target} -> {source}")
+    print(f"linked Zotero Bridge connection profile: {target} -> {source}")
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Install the packaged zotero-bridge binary")
-    parser.add_argument("--source-root", default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--install-dir", default=None)
-    parser.add_argument("--print-path", action="store_true")
+    parser.add_argument("--source-root", default=Path(__file__).resolve().parents[1], help="Profile root containing packaged platform binaries.")
+    parser.add_argument("--install-dir", default=None, help="Binary installation directory; defaults to the platform user bin directory.")
+    parser.add_argument("--print-path", action="store_true", help="Print the installed executable path after installation.")
     parser.add_argument(
         "--link-well-known-profile",
         dest="link_well_known_profile",
         action="store_true",
         default=True,
-        help="Link the Hermes well-known Host Bridge profile to the host profile",
+        help="Link the Hermes well-known Zotero Bridge profile to the Zotero-side profile",
     )
     parser.add_argument(
         "--no-link-well-known-profile",
         dest="link_well_known_profile",
         action="store_false",
-        help="Install only the binary and do not create the Host Bridge profile link",
+        help="Install only the binary and do not create the Zotero Bridge profile link",
     )
     parser.add_argument(
         "--host-home",
         default=None,
-        help="Host user home used to locate the Host Bridge well-known profile",
+        help="Zotero-side user home used to locate the well-known connection profile",
     )
     parser.add_argument(
         "--host-profile",
         default=None,
-        help="Explicit host bridge-profile.json path",
+        help="Explicit Zotero-side bridge-profile.json path",
     )
     parser.add_argument(
         "--force-profile-link",

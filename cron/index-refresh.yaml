@@ -1,18 +1,5 @@
 schema: hermes.cron.v1
 name: index-refresh
-schedule:
-  every: 6h
-command:
-  - scripts/zotero_librarian_index_service.py
-  - refresh
-behavior:
-  unchanged: "[SILENT]"
-  reportOn:
-    - added
-    - deleted
-    - changed
-    - error
-notes:
-  - Run zotero_librarian_index_service.py refresh.
-  - Page through zotero-bridge library snapshot and atomically update SQLite.
-  - Output [SILENT] when no library metadata changed.
+schedule: { every: 6h }
+command: [scripts/zotero_librarian_service.py, --quiet, index, refresh]
+behavior: { unchanged: "[SILENT]", mutation: never }
